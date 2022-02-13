@@ -13,12 +13,12 @@ public class Book {
 	private String author;
 	private String year;
 	private String isbn;
-	private String price;
+	private Double price;
 	
 	public Book()
 	{}
 
-	public Book(String title, String author, String year, String isbn, String price) {
+	public Book(String title, String author, String year, String isbn, Double price) {
 		this.title = title;
 		this.author = author;
 		this.year = year;
@@ -58,11 +58,11 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	
