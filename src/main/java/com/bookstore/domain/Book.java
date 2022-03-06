@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String title;
 	private String author;
 	private String year;
@@ -24,6 +24,10 @@ public class Book {
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public String getTitle() {
@@ -65,6 +69,17 @@ public class Book {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
+	@Override
+	 public String toString() {
+	 return "♂♂♂♂ Book id=" + id +
+			" ,title=" + this.title + 
+			" ,author=" + this.author +
+			" ,year=" + this.year +
+	 		" ,isbn=" + this.isbn +
+	 		" ,price=" + this.price;
+	 }
+	
 	
 	
 
