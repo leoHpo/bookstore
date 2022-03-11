@@ -1,29 +1,39 @@
 package com.bookstore.domain;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String title;
 	private String author;
 	private String year;
 	private String isbn;
-	private Double price;
+	private Double price;	
 	
-	public Book()
-	{}
+	@ManyToOne
+	@JoinColumn(name = "categoryId")
+	private Category category;
 
-	public Book(String title, String author, String year, String isbn, Double price) {
+	public Book() {
+	}
+
+	public Book(String title, String author, String year, String isbn, Double price, Category category) {
 		this.title = title;
 		this.author = author;
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+		this.category = category;
 	}
 	
 	public Long getId() {
@@ -70,18 +80,21 @@ public class Book {
 		this.price = price;
 	}
 	
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
 	@Override
 	 public String toString() {
-	 return "♂♂♂♂ Book id=" + id +
+	 return "Book id=" + id +
 			" ,title=" + this.title + 
 			" ,author=" + this.author +
 			" ,year=" + this.year +
 	 		" ,isbn=" + this.isbn +
 	 		" ,price=" + this.price;
 	 }
-	
-	
-	
-
-
 }
