@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Endproject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Videogames</h1>
+	<table class="table table-striped">
+		<tr>
+			<th>Title</th>
+			<th>Developer</th>
+			<th>Publisher</th>
+			<th>Year</th>
+			<th>Price</th>
+			<th>Genre</th>
+			<th></th>
+		</tr>
+		<tr th:each="videogame : ${videogamelist}">
+	 		<td th:text="${videogame.title}"></td>
+	 		<td th:text="${videogame.developer}"></td>
+	 		<td th:text="${videogame.publisher}"></td>
+	 		<td th:text="${videogame.year}"></td>
+	 		<td th:text="${videogame.price}"></td>
+	 		<td th:text="${videogame.genre.name}"></td>
+	 		<td><a th:href="@{/deletevideogame/{id}(id=${videogame.id})}" class="btn btn-danger">Delete</a></td>
+		</tr>
+	</table>
+	<a href="/addvideogame" class="btn btn-success">Add Videogame</a>
+</body>
+</html>

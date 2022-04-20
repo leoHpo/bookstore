@@ -1,4 +1,4 @@
-package com.bookstore.domain;
+package com.endproject.domain;
 
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -10,27 +10,27 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Category {
+public class Genre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long categoryId;
+	private Long genreId;
 	
 	private String name;
 	
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy =  "category")
-	private List<Book> books;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "genre")
+	private List<Videogame> videogames;
 	
-	public Category()
+	public Genre()
 	{}
 	
-	public Category(String name) {
+	public Genre(String name) {
 		this.name = name;
 	}
 
-	public Long getCategoryId() {
-		return categoryId;
+	public Long getGenreId() {
+		return genreId;
 	}
 
 	public String getName() {
@@ -41,11 +41,11 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Book> getBooks() {
-		return this.books;
+	public List<Videogame> getVideogames() {
+		return this.videogames;
 	}
 
-	public void setBooklist(List<Book> books) {
-		this.books = books;
+	public void setBooklist(List<Videogame> videogames) {
+		this.videogames = videogames;
 	}
 }
